@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Alert, Button, SafeAreaView, StyleSheet, TextInput, View } from 'react-native';
 import ThemedText from '../components/ThemedText';
+import { useFlightStats } from '../contexts/FlightStatsContext';
 
 export default function LogFlightScreen({ navigation, route }) {
+  const { addFlight } = useFlightStats();
   const [flightData, setFlightData] = useState({
     departure: '',
     arrival: '',
@@ -47,6 +49,11 @@ export default function LogFlightScreen({ navigation, route }) {
       aircraft: flightData.aircraft,
       notes: flightData.notes
     };
+
+    // Update flight stats if duration is provided
+    if (flightData.duration) {
+      addFlight(flightData.duration);
+    }
 
     // Navigate to the preview screen with the flight data
     navigation.navigate('FlightPreview', { flight: newFlight });

@@ -2,16 +2,17 @@ import React from 'react';
 import { Image, SafeAreaView, StyleSheet, View } from 'react-native';
 import ThemedText from '../components/ThemedText';
 import ThemedView from '../components/ThemedView';
+import { useFlightStats } from '../contexts/FlightStatsContext';
 
 const dummyProfile = {
   name: 'Kim Kissh',
-  totalFlights: 42,
-  totalHours: 156,
   favoriteAircraft: 'Cessna 172',
   certificates: ['Private Pilot', 'Instrument Rating', 'Multi-Commercial Certification', 'Commercial Single Engine Add On']
 };
 
 export default function ProfileScreen() {
+  const { stats } = useFlightStats();
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -24,11 +25,11 @@ export default function ProfileScreen() {
 
       <ThemedView style={styles.statsContainer}>
         <View style={styles.statItem}>
-          <ThemedText style={styles.statNumber}>{dummyProfile.totalFlights}</ThemedText>
+          <ThemedText style={styles.statNumber}>{stats.totalFlights}</ThemedText>
           <ThemedText style={styles.statLabel}>Flights</ThemedText>
         </View>
         <View style={styles.statItem}>
-          <ThemedText style={styles.statNumber}>{dummyProfile.totalHours}</ThemedText>
+          <ThemedText style={styles.statNumber}>{stats.totalHours}</ThemedText>
           <ThemedText style={styles.statLabel}>Hours</ThemedText>
         </View>
       </ThemedView>
