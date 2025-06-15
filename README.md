@@ -2,7 +2,11 @@
 Community App for Pilots
 
 ## Demo Video
-[![FlightClub Demo](https://cdn.loom.com/sessions/thumbnails/d22cc8c4b0b144f9a4d91be92d80ee5b-with-play.gif)](https://www.loom.com/share/d22cc8c4b0b144f9a4d91be92d80ee5b)
+
+
+https://github.com/user-attachments/assets/a41f3f05-0fd0-4aae-93b7-f4b76ddec7a6
+
+
 
 ## Prerequisites
 Before you begin, ensure you have the following installed:
